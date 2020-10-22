@@ -29,10 +29,7 @@ if(!empty($youtubeURL) && !filter_var($youtubeURL, FILTER_VALIDATE_URL) === fals
          
         if(!empty($downloadURL)){ 
             // Define header for force download 
-            header("Cache-Control: public"); 
-            header("Content-Description: File Transfer"); 
-            header("Content-Disposition: attachment; filename=$fileName"); 
-            header("Content-Type: video/mp4"); 
+             header("Content-Type: video/mp4"); 
             
              
             // Read the file 

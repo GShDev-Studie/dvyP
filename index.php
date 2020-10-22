@@ -32,7 +32,7 @@ if(!empty($youtubeURL) && !filter_var($youtubeURL, FILTER_VALIDATE_URL) === fals
             header("Cache-Control: public"); 
             header("Content-Description: File Transfer"); 
             header("Content-Disposition: attachment; filename=$fileName"); 
-            header("Content-Type: */*"); 
+            header("Content-Type: video/mp4"); 
             header("Content-Transfer-Encoding: binary"); 
              
             // Read the file 

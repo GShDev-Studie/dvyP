@@ -17,29 +17,19 @@ if(!empty($youtubeURL) && !filter_var($youtubeURL, FILTER_VALIDATE_URL) === fals
      
     // Validate the youtube video url 
     if($downloader->hasVideo()){ 
-        // Get the video download link info 
-        $videoDownloadLink = $downloader->getVideoDownloadLink(); 
-         
-        $videoTitle = $videoDownloadLink[0]['title']; 
-        $videoQuality = $videoDownloadLink[0]['qualityLabel']; 
-        $videoFormat = $videoDownloadLink[0]['format']; 
-        $videoFileName = strtolower(str_replace(' ', '_', $videoTitle)).'.'.$videoFormat; 
-        $downloadURL = $videoDownloadLink[0]['url']; 
-        $fileName = preg_replace('/[^A-Za-z0-9.\_\-]/', '', basename($videoFileName)); 
-         
-        if(!empty($downloadURL)){ 
-            // Define header for force download 
-             header("Content-Type: video/mp4"); 
-            
-             
-            // Read the file 
-            readfile($downloadURL); 
-        } 
-    }else{ 
-        echo "The video is not found, please check YouTube URL."; 
+	    $videoDownloadLink = $downloader->getVideoDownloadLink(); 
+        $videoTitle = $videoDownloadLink[0]['title'];
+         $downloadURL = $videoDownloadLink[0]['url']; 
+	echo "{'succeeded':false,'url':'.$downloadURL.','title':'.$videoTitle.'}";
+	
+	
+		
+			
+				  }else{ 
+        echo "{'msg':'The video is not found, please check YouTube URL.','succeeded':false}"; 
     } 
 }else{ 
-    echo "Please provide valid YouTube URL."; 
+    echo "{'msg':'Please provide valid YouTube URL.','succeeded':false}"; 
 } 
  
 ?>

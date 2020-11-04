@@ -20,7 +20,7 @@ if(!empty($youtubeURL) && !filter_var($youtubeURL, FILTER_VALIDATE_URL) === fals
 	    $videoDownloadLink = $downloader->getVideoDownloadLink(); 
         $videoTitle = $videoDownloadLink[0]['title'];
          $downloadURL = $videoDownloadLink[0]['url']; 
-	echo "{'succeeded':false,'url':'$downloadURL','title':'$videoTitle'}";
+	echo "{'succeeded':true,'url':'$downloadURL','title':'$videoTitle'}";
 	
 	
 		
